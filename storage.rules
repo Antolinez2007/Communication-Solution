@@ -1,0 +1,11 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() { return request.auth != null; }
+    function isPdf() { return request.resource.contentType == 'application/pdf'; }
+    function validSize() { return request.resource.size < 5 * 1024 * 1024; }
+    match /contributions/{uid}/{file} { allow read: if signedIn(); allow write: if signedIn() && request.auth.uid == uid && isPdf() && validSize(); }
+    match /courses/{courseId}/{file} { allow read: if signedIn(); allow write: if signedIn() && exists(/databases/(default)/documents/users/$(request.auth.uid)) && get(/databases/(default)/documents/users/$(request.auth.uid)).data.role in ['ceo','manager','supervisor']; }
+    match /certificates/{uid}/{file} { allow read: if signedIn() && request.auth.uid == uid; allow write: if signedIn() && request.auth.uid == uid; }
+  }
+}

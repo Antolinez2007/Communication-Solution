@@ -1,0 +1,5 @@
+export const APP = { name: 'Tu Voz, Nuestra Mejora', shortName: 'Tu Voz', company: 'NovaGestión S.A.S.', slogan: 'Tu opinión cuenta. Juntos construimos un mejor lugar para todos.' }
+export const DEPARTMENTS = ['Dirección General','Gerencia Administrativa','Recursos Humanos','Operaciones','Servicio al Cliente','Tecnología','Seguridad y Bienestar Laboral']
+export const ROLES = { ceo:'CEO', manager:'Gerente administrativo y de RR. HH.', supervisor:'Supervisor', employee:'Empleado' }
+export const STATUSES = ['draft','received','classified','in_review','information_requested','assigned','evaluation','recommended','escalated_manager','escalated_ceo','approved','rejected','implementing','implemented','resolved','closed']
+export const STATUS_LABELS = { draft:'Borrador',received:'Recibido',classified:'Clasificado',in_review:'En revisión',information_requested:'Información solicitada',assigned:'Asignado',evaluation:'En evaluación',recommended:'Recomendado',escalated_manager:'Escalado a gerencia',escalated_ceo:'Escalado a CEO',approved:'Aprobado',rejected:'No aprobado',implementing:'En implementación',implemented:'Implementado',resolved:'Resuelto',closed:'Cerrado' }
